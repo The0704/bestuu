@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestuu 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #ffe6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 2em;
+    }
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff66b2;
+      font-size: 18px;
+      width: 80%;
+      max-width: 300px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #ff66b2;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #ff1493;
+    }
+    .sticker {
+      margin-top: 20px;
+      width: 180px;
+      max-width: 100%;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Bestie! 💕</h1>
+  <input type="text" id="nameInput" placeholder="Type 'Bestuu'">
+  <button onclick="showMessage()">Submit</button>
+  
+  <div class="message" id="outputMessage"></div>
+  <img class="sticker" id="stickerImg"
+       src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif"
+       alt="Hugging Sticker">
+
+  <!-- 🎊 Confetti Script CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    function showMessage() {
+      const input = document.getElementById('nameInput').value.trim().toLowerCase();
+      const messageBox = document.getElementById('outputMessage');
+      const sticker = document.getElementById('stickerImg');
+
+      if (input === "bestuu") {
+        messageBox.innerHTML = "Awwww you're my cutest Bestii💖🤗 ever! <br>Big tight hug for you! 🫂💫";
+        sticker.style.display = 'block';
+
+        // Trigger confetti 🎉
+        confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.6 }
+        });
+      } else {
+        messageBox.innerHTML = "Please type 'Bestuu' to see the surprise 😊";
+        sticker.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
